@@ -1,0 +1,6 @@
+---
+- name: Install golang
+  hosts: all
+  become: yes
+  roles:
+    - ansible-go
