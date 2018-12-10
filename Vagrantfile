@@ -18,9 +18,9 @@ Vagrant.configure("2") do |config|
   EOM
 
   config.vm.provision 'Update vm', type: :shell, inline: <<~'EOM'
-    sudo apt update
-    sudo apt dist-upgrade -y
-    sudo apt autoremove --purge -y
+    apt update
+    DEBIAN_FRONTEND=noninteractive apt dist-upgrade -y
+    apt autoremove --purge -y
   EOM
 
   config.vm.provision 'ansible', run: 'always', type: :ansible_local do |ansible|
